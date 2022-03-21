@@ -12,6 +12,37 @@ generator client {
 }
 
 model Account {
-  id        Int         @id
-  username  String      @unique
+  id Int @id // chat_id from Telegram
+  username String @unique // username from Telegram
+
+  posts Post[]
+}
+
+model Post {
+  id Int @id @default(autoincrement())
+
+	account Account @relation(fields: [accountId], references: [id])
+	accountId Int
+
+  photos Photo[]
+}
+
+model Photo {
+  id Int @id @default(autoincrement())
+  date Int
+
+	post Post @relation(fields: [postId], references: [id])
+	postId Int
+
+  photoSizes PhotoSize[]
+}
+
+model PhotoSize {
+  id Int @id @default(autoincrement())
+  fileId String
+  width Int
+  height Int
+
+	photo Photo @relation(fields: [postId], references: [id])
+	photoId Int
 }

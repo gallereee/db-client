@@ -43,6 +43,6 @@ model PhotoSize {
   width Int
   height Int
 
-	photo Photo @relation(fields: [postId], references: [id])
+	photo Photo @relation(fields: [photoId], references: [id])
 	photoId Int
 }

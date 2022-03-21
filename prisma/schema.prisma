@@ -25,7 +25,7 @@ model Account {
 
 model Post {
   id Int @id @default(autoincrement())
-  date Int @unique()
+  messageDate Int @unique()
 
 	account Account @relation(fields: [accountId], references: [id])
 	accountId Int

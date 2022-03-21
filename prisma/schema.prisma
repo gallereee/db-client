@@ -16,25 +16,40 @@ model Account {
   username String @unique // username from Telegram
 
   posts Post[]
+
+  // Timestamps
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }
 
 model Post {
   id Int @id @default(autoincrement())
+  date Int @unique()
 
 	account Account @relation(fields: [accountId], references: [id])
 	accountId Int
 
   photos Photo[]
+
+  // Timestamps
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }
 
 model Photo {
   id Int @id @default(autoincrement())
-  date Int
 
 	post Post @relation(fields: [postId], references: [id])
 	postId Int
 
   photoSizes PhotoSize[]
+
+  // Timestamps
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }
 
 model PhotoSize {
@@ -45,4 +60,9 @@ model PhotoSize {
 
 	photo Photo @relation(fields: [photoId], references: [id])
 	photoId Int
+
+  // Timestamps
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 }

@@ -1,0 +1,24 @@
+{
+  "name": "@gallereee/db-client",
+  "version": "0.0.0",
+  "description": "Prisma client for Galleree app",
+  "author": "Dmitry Bardyshev",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
+  "repository": "https://github.com/gallereee/db-client",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/gallereee"
+  },
+  "scripts": {
+    "build": "npx prisma generate",
+    "postinstall": "npm run build",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@prisma/client": "^3.11.0"
+  }
+}

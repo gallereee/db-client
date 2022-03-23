@@ -14,7 +14,7 @@
     "registry": "https://npm.pkg.github.com/gallereee"
   },
   "scripts": {
-    "copy-migrations": "cpy ./prisma/migrations ./dist/migrations",
+    "copy-migrations": "cpy . ../../dist/migrations --cwd=./prisma/migrations",
     "build": "npx prisma generate && npm run copy-migrations",
     "prepare": "npm run build"
   },

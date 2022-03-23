@@ -14,11 +14,13 @@
     "registry": "https://npm.pkg.github.com/gallereee"
   },
   "scripts": {
-    "build": "npx prisma generate",
+    "copy-migrations": "cpy ./prisma/migrations ./dist/migrations",
+    "build": "npx prisma generate && npm run copy-migrations",
     "postinstall": "npm run build",
     "prepare": "npm run build"
   },
   "devDependencies": {
-    "@prisma/client": "^3.11.0"
+    "@prisma/client": "^3.11.0",
+    "cpy-cli": "^4.1.0"
   }
 }

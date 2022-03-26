@@ -24,7 +24,7 @@ model Account {
 }
 
 model Post {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   groupId String @unique()
 
 	account Account @relation(fields: [accountId], references: [id])
@@ -39,10 +39,10 @@ model Post {
 }
 
 model Photo {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
 
 	post Post @relation(fields: [postId], references: [id])
-	postId Int
+	postId String
 
   photoSizes PhotoSize[]
 
@@ -53,13 +53,13 @@ model Photo {
 }
 
 model PhotoSize {
-  id Int @id @default(autoincrement())
+  id String @id @default(uuid())
   fileId String
   width Int
   height Int
 
 	photo Photo @relation(fields: [photoId], references: [id])
-	photoId Int
+	photoId String
 
   // Timestamps
 

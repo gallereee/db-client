@@ -10,7 +10,7 @@ CREATE TABLE "Account" (
 
 -- CreateTable
 CREATE TABLE "Post" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "groupId" TEXT NOT NULL,
     "accountId" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -21,8 +21,8 @@ CREATE TABLE "Post" (
 
 -- CreateTable
 CREATE TABLE "Photo" (
-    "id" SERIAL NOT NULL,
-    "postId" INTEGER NOT NULL,
+    "id" TEXT NOT NULL,
+    "postId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 
@@ -31,11 +31,11 @@ CREATE TABLE "Photo" (
 
 -- CreateTable
 CREATE TABLE "PhotoSize" (
-    "id" SERIAL NOT NULL,
+    "id" TEXT NOT NULL,
     "fileId" TEXT NOT NULL,
     "width" INTEGER NOT NULL,
     "height" INTEGER NOT NULL,
-    "photoId" INTEGER NOT NULL,
+    "photoId" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

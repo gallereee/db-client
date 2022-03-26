@@ -1,6 +1,6 @@
 {
   "name": "@gallereee/db-client",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Prisma client for Galleree app",
   "author": "Dmitry Bardyshev",
   "license": "ISC",

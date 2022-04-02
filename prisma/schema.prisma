@@ -36,6 +36,7 @@ model AuthProvider {
 
 	type AuthProviderType
 	externalAccountId String
+	externalAccountData Json?
 
   // Timestamps
 

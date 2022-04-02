@@ -12,10 +12,30 @@ generator client {
 }
 
 model Account {
-  id Int @id // chat_id from Telegram
-  username String @unique // username from Telegram
+  id String @id @default(uuid())
+  username String @unique
 
+  authProviders AuthProvider[]
   posts Post[]
+
+  // Timestamps
+
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+enum AuthProviderType {
+	TELEGRAM_USER
+}
+
+model AuthProvider {
+	id String @id @default(uuid())
+
+	account Account @relation(fields: [accountId], references: [id])
+	accountId String
+
+	type AuthProviderType
+	externalAccountId String
 
   // Timestamps
 
@@ -28,7 +48,7 @@ model Post {
   groupId String @unique()
 
 	account Account @relation(fields: [accountId], references: [id])
-	accountId Int
+	accountId String
 
   photos Photo[]
 

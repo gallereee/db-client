@@ -15,7 +15,7 @@ model Account {
   id String @id @default(uuid())
   username String @unique
 
-  authProviders AuthProvider[]
+  accountProviders AccountProvider[]
   posts Post[]
 
   // Timestamps
@@ -24,19 +24,18 @@ model Account {
   updatedAt DateTime    @updatedAt
 }
 
-enum AuthProviderType {
+enum AccountProviderType {
 	TELEGRAM_USER
 }
 
-model AuthProvider {
+model AccountProvider {
 	id String @id @default(uuid())
+	type AccountProviderType
+	externalAccountId String
+	externalAccountData Json?
 
 	account Account @relation(fields: [accountId], references: [id])
 	accountId String
-
-	type AuthProviderType
-	externalAccountId String
-	externalAccountData Json?
 
   // Timestamps
 

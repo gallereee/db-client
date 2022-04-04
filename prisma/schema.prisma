@@ -45,7 +45,6 @@ model AccountProvider {
 
 model Post {
   id String @id @default(uuid())
-  groupId String @unique()
 
 	account Account @relation(fields: [accountId], references: [id])
 	accountId String
@@ -60,11 +59,13 @@ model Post {
 
 model Photo {
   id String @id @default(uuid())
+  width Int
+  height Int
+
+	file File?
 
 	post Post @relation(fields: [postId], references: [id])
 	postId String
-
-  photoSizes PhotoSize[]
 
   // Timestamps
 
@@ -72,17 +73,16 @@ model Photo {
   updatedAt DateTime    @updatedAt
 }
 
-model PhotoSize {
-  id String @id @default(uuid())
-  fileId String
-  width Int
-  height Int
+enum FileProvider {
+	TELEGRAM
+}
 
-	photo Photo @relation(fields: [photoId], references: [id])
+model File {
+  id String @id @default(uuid())
+  provider FileProvider
+
+  photo Photo @relation(fields: [photoId], references: [id])
 	photoId String
 
-  // Timestamps
-
-  createdAt DateTime    @default(now())
-  updatedAt DateTime    @updatedAt
+  data Json
 }

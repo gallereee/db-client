@@ -16,6 +16,7 @@
   "scripts": {
     "copy-migrations": "cpy . ../../dist/migrations --cwd=./prisma/migrations",
     "build": "npx prisma generate && npm run copy-migrations",
+    "db:push": "npx prisma db push",
     "prepare": "npm run build"
   },
   "devDependencies": {

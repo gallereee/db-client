@@ -45,6 +45,7 @@ model AccountProvider {
 
 model Post {
   id String @id @default(uuid())
+  description String?
 
 	account Account @relation(fields: [accountId], references: [id])
 	accountId String

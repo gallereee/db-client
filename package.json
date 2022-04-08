@@ -1,11 +1,11 @@
 {
   "name": "@gallereee/db-client",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Prisma client for Galleree app",
   "author": "Dmitry Bardyshev",
   "license": "ISC",
   "main": "prisma/index.js",
-	"types": "prisma/index.d.ts",
+  "types": "prisma/index.d.ts",
   "files": [
     "prisma"
   ],

@@ -17,8 +17,9 @@
     "copy-migrations": "cpy . ../../dist/migrations --cwd=./prisma/migrations",
     "build": "npx prisma generate && npm run copy-migrations",
     "db:push": "npx prisma db push",
-    "prepare": "npm run build"
-  },
+    "prepare": "npm run build",
+		"postinstall": "npx prisma generate"
+	},
   "devDependencies": {
     "@prisma/client": "^3.11.0",
     "cpy-cli": "^4.1.0"

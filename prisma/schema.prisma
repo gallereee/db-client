@@ -61,6 +61,7 @@ model Photo {
   id String @id @default(uuid())
   width Int
   height Int
+  order Int
 
 	file File @relation(fields: [fileId], references: [id])
 	fileId String

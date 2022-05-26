@@ -66,8 +66,8 @@ model Photo {
 	file File @relation(fields: [fileId], references: [id])
 	fileId String
 
-	post Post @relation(fields: [postId], references: [id])
-	postId String
+	post Post? @relation(fields: [postId], references: [id], onDelete: SetNull)
+	postId String?
 
   // Timestamps
 
